@@ -20,7 +20,4 @@ class data_preProcessing_script:
         self.logger.info(f"Dropped duplicates: {droped}")
         return self.df.drop(index=droped, inplace=True)
 
-    def drop_duplicates(self) -> pd.DataFrame:
-        droped = self.df[self.df.duplicated()].index
-        self.logger.info(f"Dropped duplicates: {droped}")
-        return self.df.drop(index=droped, inplace=True)
+    
