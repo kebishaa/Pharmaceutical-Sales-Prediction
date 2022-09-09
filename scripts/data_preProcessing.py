@@ -30,5 +30,8 @@ class data_preProcessing_script:
                 columns={col: f'{col[:-7]}(MegaBytes)'}, inplace=True)
         print('Byte to MB change error')
         return self.df
+    def show_datatypes(self) -> pd.DataFrame:
+        self.logger.info(f"Showing datatypes")
+        return self.df.dtypes
 
     
