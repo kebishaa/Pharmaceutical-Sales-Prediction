@@ -15,3 +15,12 @@ class data_preProcessing_script:
         self.df = df
         self.logger = App_Logger(
             "logs/data_preProcessing.log").get_app_logger()
+    def drop_duplicates(self) -> pd.DataFrame:
+        droped = self.df[self.df.duplicated()].index
+        self.logger.info(f"Dropped duplicates: {droped}")
+        return self.df.drop(index=droped, inplace=True)
+
+    def drop_duplicates(self) -> pd.DataFrame:
+        droped = self.df[self.df.duplicated()].index
+        self.logger.info(f"Dropped duplicates: {droped}")
+        return self.df.drop(index=droped, inplace=True)
