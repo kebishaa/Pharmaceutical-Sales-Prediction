@@ -19,5 +19,9 @@ class data_preProcessing_script:
         droped = self.df[self.df.duplicated()].index
         self.logger.info(f"Dropped duplicates: {droped}")
         return self.df.drop(index=droped, inplace=True)
+    def convert_to_numbers(self) -> pd.DataFrame:
+        self.df = self.df.apply(pd.to_numeric, errors='coerce')
+        self.logger.info(f"Converted to numbers")
+        return self.df
 
     
