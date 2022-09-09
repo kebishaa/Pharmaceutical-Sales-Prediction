@@ -23,5 +23,12 @@ class data_preProcessing_script:
         self.df = self.df.apply(pd.to_numeric, errors='coerce')
         self.logger.info(f"Converted to numbers")
         return self.df
+    def convertByteMB(self, coll) -> pd.DataFrame:
+        for col in coll:
+            self.df[col] = self.df[col] / 1*10e+5
+            self.df.rename(
+                columns={col: f'{col[:-7]}(MegaBytes)'}, inplace=True)
+        print('Byte to MB change error')
+        return self.df
 
     
