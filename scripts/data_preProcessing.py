@@ -44,5 +44,17 @@ class data_preProcessing_script:
     def show_statistical_info(self) -> pd.DataFrame:
         self.logger.info(f"Showing statistical info")
         return self.df.agg(['mean'])
+    def show_correlation(self) -> pd.DataFrame:
+        self.logger.info(f"Showing correlation")
+        return self.df.corr()
+
+    def collective_grouped_mean(self, colomnName: str) -> pd.DataFrame:
+        groupby_colomnName = self.df.groupby(colomnName)
+        self.logger.info(f"Collective grouped mean")
+        return groupby_colomnName.mean()
+
+    def list_coloumn_names(self) -> pd.DataFrame:
+        self.logger.info(f"Showing coloumn names")
+        return self.df.columns
 
     
