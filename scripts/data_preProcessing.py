@@ -33,5 +33,16 @@ class data_preProcessing_script:
     def show_datatypes(self) -> pd.DataFrame:
         self.logger.info(f"Showing datatypes")
         return self.df.dtypes
+    def show_data_description(self) -> pd.DataFrame:
+        self.logger.info(f"Showing data description")
+        return self.df.describe()
+
+    def show_data_information(self) -> pd.DataFrame:
+        self.logger.info(f"Showing data information")
+        return self.df.info()
+
+    def show_statistical_info(self) -> pd.DataFrame:
+        self.logger.info(f"Showing statistical info")
+        return self.df.agg(['mean'])
 
     
